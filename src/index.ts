@@ -8,7 +8,7 @@ app.use(cookieParser());
 
 const PORT = 3000;
 
-app.post("/test/:id", (req: Request, res: Response) => {
+app.get("/test/:id", (req: Request, res: Response) => {
   const { id } = req.params;
   const { test } = req.cookies;
 

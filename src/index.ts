@@ -1,15 +1,19 @@
 import express, { Request, Response } from "express";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
 const PORT = 3000;
 
-app.get("/test", (req: Request, res: Response) => {
-  res.cookie("test", new Date().toString(), {
+app.post("/test", (req: Request, res: Response) => {
+  const body = req.body;
+
+  res.cookie("test", JSON.stringify(body), {
     httpOnly: true,
   });
 

@@ -8,16 +8,8 @@ app.use(cookieParser());
 
 const PORT = 3000;
 
-app.get("/test/:id", (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { test } = req.cookies;
-
-  if (test) {
-    res.status(200).json({ message: "La cookie ya esta ocupada" });
-    return;
-  }
-
-  res.cookie("test", id, {
+app.get("/test", (req: Request, res: Response) => {
+  res.cookie("test", new Date().toString(), {
     httpOnly: true,
   });
 

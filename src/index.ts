@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 const PORT = 3000;
 
-app.post("/test", (req: Request, res: Response) => {
+app.post("/test/p", (req: Request, res: Response) => {
   const body = req.body;
 
   res.cookie("test", JSON.stringify(body), {
